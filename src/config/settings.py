@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'base',
     'shop',
+    'wallet',
     'rest_framework',
 ]
 
@@ -109,6 +110,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.DjangoModelPermissions',
+    ),
+    'DEFAULT_RENDERER_CLASSES': (
+        'base.renderers.DefaultRenderer',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'base.pagination.CustomPagination',
+    'PAGE_SIZE': 5,
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler'
+}
 
 AUTH_USER_MODEL = 'user.User'
 
